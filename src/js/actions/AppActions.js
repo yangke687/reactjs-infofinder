@@ -7,6 +7,9 @@ var AppActions = {
 			actionType: AppConstants.SEARCH_TEXT,
 			search: search
 		});
+	},
+	receiveResults: function(results){
+		console.log(results);
 	}
 }
 
