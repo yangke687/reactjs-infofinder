@@ -21,6 +21,10 @@ var AppStore = assign({}, EventEmitter.prototype, {
 	},
 	setSearchText: function(search){
 		_searchText = search.text;
+	},
+	setResults: function(results){
+		_items = results;
+		console.log(_items);
 	}
 });
 
@@ -31,6 +35,10 @@ AppDispatcher.register(function(payload){
 		case AppConstants.SEARCH_TEXT:
 			AppAPI.searchText(action.search);
 			AppStore.setSearchText(action.search);
+			AppStore.emit(CHANGE_EVENT);
+			break;
+		case AppConstants.RECV_RETS:
+			AppStore.setResults(action.results);
 			AppStore.emit(CHANGE_EVENT);
 			break;
 	}

@@ -9,7 +9,10 @@ var AppActions = {
 		});
 	},
 	receiveResults: function(results){
-		console.log(results);
+		AppDispatcher.handleViewAction({
+			actionType: AppConstants.RECV_RETS,
+			results: results
+		});
 	}
 }
 
